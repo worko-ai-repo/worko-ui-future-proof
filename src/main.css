@@ -1,0 +1,290 @@
+/* styles/index.css */
+@import url(./styles/font.css);
+@import url(./styles/common.css);
+@import url(./styles/input.css);
+@import url(./styles/buttons.css);
+@import url(./styles/checkbox.css);
+@import url(./styles/animation.css);
+@import url(./styles/select.css);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+:root {
+	/* Background color that will be applied to main body */
+	--primary-background-color: #eeeeee;
+	--secondary-background-color: #4B7EFF;
+	--color-hover: #747bff;
+	--background-color-hover: #f9f9f9;
+	--text-color: #213547;
+	--background: #ffffff;
+	--text: #1a1a1a;
+	--brand-light: #005dfd;
+	--brand: #170155;
+	/* Brand color */
+	--brand-bright: #22019c;
+	--header-scrolled: rgba(255, 255, 255, 0.8);
+	--toastify-toast-bottom: 100px !important;
+
+	--text-xxs: 0.8rem;
+	--text-xs: 1rem;
+	--text-s: 1.2rem;
+	--text-sm: 1.6rem;
+	--text-md: 2rem;
+	--text-lg: 3rem;
+	--text-xl: 4rem;
+	--text-2xl: 8rem;
+
+	font-family: 'Gilroy', 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+	font-display: swap;
+	/* Fallback font layout shift fix */
+	/* color-scheme: light dark; */
+	color: rgb(0, 0, 0);
+	background-color: var(--primary-background-color);
+
+	-ms-overflow-style: none !important;
+	/* IE and Edge */
+	scrollbar-width: none !important;
+	/* Firefox */
+	scroll-behavior: smooth;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+	--primary-background-color: #1a1a1a;
+	--background-color: #121212;
+	--color-hover: #747bff;
+	--background-color-hover: #333333;
+	--text-color: #ffffff;
+	--background: #181818;
+	--text: #1a1a1a;
+	--brand: #170155;
+	/* Brand color */
+	--header-scrolled: rgb(0 8 39 / 80%);
+}
+
+* {
+	transition: all 0.3s ease-in-out;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	min-height: 100vh;
+	overflow-x: hidden;
+	/*  Prevents horizontal scroll */
+	-ms-overflow-style: none !important;
+	/* IE and Edge */
+	scrollbar-width: none !important;
+	/* Firefox */
+}
+
+.bc {
+	border: 2px solid red;
+}
+
+.section-wrapper {
+	position: relative;
+	z-index: 10;
+	width: 100%;
+	max-width: 1280px;
+	margin: auto;
+	padding: var(--text-lg);
+	overflow: hidden;
+}
+
+button {
+	cursor: pointer;
+
+	&:active {
+		outline: none;
+		transform: scale(0.95);
+	}
+}
+
+h1 {
+	font-size: var(--text-lg);
+}
+
+
+
+input {
+	background-color: var(--primary-background-color);
+	outline: none;
+	font-weight: 300;
+	color: rgb(65, 111, 153)
+}
+
+.thin_border {
+	border: 1px solid hsla(0, 0%, 74%, .8);
+}
+
+label {
+	font-size: var(--text-xxs);
+	margin: 5px;
+	color: rgb(55, 55, 55);
+	text-align: left;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar {
+	width: 5px;
+	/* Width of the scrollbar */
+	height: 5px;
+	cursor: pointer;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: rgb(5, 124, 203);
+	background: linear-gradient(
+	  120deg,
+	  rgb(99, 193, 255) 0%,
+	  rgb(99, 193, 255) 37%,
+	  rgba(154, 205, 255, 1) 76%
+	);
+	/* Rounded corners */
+	border-radius: 10px;
+	cursor: pointer;
+  }
+  
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background-color: #999;
+	/* Color of the scrollbar handle on hover */
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+	background-color: transparent;
+	/* Color of the scrollbar corner */
+}
+
+
+@media screen and (max-width: 768px) {
+	.section-wrapper {
+		padding: 5rem 2rem;
+	}
+
+	h1 {
+		font-size: var(--text-lg);
+	}
+
+
+}
+
+.Toastify__toast {
+	width: 100% !important;
+	min-width: 30vw !important;
+}
+
+.Toastify__toast {
+	text-align: left;
+	display: grid;
+	grid-template-columns: 40px 1fr 30px;
+	grid-template-areas: "icon content close";
+	align-items: center;
+	gap: 1rem;
+	padding: 0px;
+}
+
+.Toastify__toast-icon {
+	grid-area: icon;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Toastify__toast-body {
+	grid-area: content;
+	display: flex;
+	align-items: center;
+}
+
+.Toastify__close-button {
+	grid-area: close;
+	align-self: center;
+	height: 100%;
+	margin-top: 0px;
+	position: unset;
+	display: flex;
+	width: min-content;
+	align-items: center;
+  }
+
+  .no-scrl {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+.no-scrl-web::-webkit-scrollbar { 
+    display: none;  /* Older Safari and Chromium */
+}
+
+#my-tooltip {
+  /* width: 100%; */
+  text-align: left;
+  text-wrap: break-word;
+  max-width: 70vw;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  z-index: 999999999999999;
+}
+@media screen and (max-width: 480px) {
+	.section-wrapper {
+		padding: 5rem 0.5em;
+	}
+	#my-tooltip {
+		font-size: var(--text-xxs);
+		width: 80%;
+		text-align: left;
+		text-wrap: break-word;
+	};
+	h1 {
+		font-size: var(--text-md);
+	}
+
+	.Toastify__toast {
+		max-width: 90vw !important;
+	}
+
+	.Toastify__toast-container--top-center {
+		left: 50%;
+		transform: translateX(-50%);
+		position: fixed;
+	}
+
+}
+
+.ql-toolbar {
+  border: none !important;
+  font-family: 'Mulish', sans-serif;
+}
+
+.ql-container {
+  border: none !important;
+  font-family: 'Mulish', sans-serif;
+  background-color: #f3f4f6; /* Tailwind's bg-gray-100 */
+  border-radius: 0.5rem;
+}
+
+.ql-editor {
+  min-height: 150px;
+  padding: 1rem;
+  background-color: #f3f4f6; /* Tailwind's bg-gray-100 */
+}
